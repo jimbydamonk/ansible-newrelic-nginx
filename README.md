@@ -19,6 +19,9 @@ newrelic_nginx_sources: []
 newrelic_nginx_log_file: /var/logs/nginx-nr-agent/nginx-nr-agent.log
 
 ```
+To add sites for the plugin, add items to the ```newrelic_nginx_sources``` list.
+They should have a title, name and url. See the example playbook below for
+usage.
 
 Dependencies
 ------------
@@ -48,3 +51,4 @@ Apache
 Author Information
 ------------------
 Mike Buzzetti
+
