@@ -1,0 +1,3 @@
+---
+newrelic_nginx_sources: []
+newrelic_nginx_log_file: /var/logs/nginx-nr-agent/nginx-nr-agent.log

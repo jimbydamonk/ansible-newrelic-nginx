@@ -1,0 +1,16 @@
+---
+- name: Adding APT key
+  apt_key:
+    url: http://nginx.org/keys/nginx_signing.key
+    state: present
+
+- name: Add APT repository
+  apt_repository:
+    repo: "deb http://apt.newrelic.com/debian/ newrelic non-free"
+    update_cache: yes
+
+- name: Install nginx-nr-agent
+  apt:
+    name: nginx-nr-agent
+    state: present
+  notify: Restart nginx-nr-agent

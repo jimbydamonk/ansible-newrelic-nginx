@@ -1,0 +1,14 @@
+---
+- name: Install Nginx Yum Repository
+  copy:
+    src: /etc/yum.repos.d/nginx.repo
+    dest: /etc/yum.repos.d/nginx.repo
+    mode: "0644"
+    owner: root
+    group: root
+
+- name: Install New Relic Nginx Daemon
+  yum:
+    name: nginx-nr-agent
+    state: present
+  notify: Restart nginx-nr-agent

@@ -1,0 +1,16 @@
+---
+- name: Lookup OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Run OS specific tasks
+  include: "setup-{{ ansible_os_family }}.yml"
+
+- name: Install New Relic Nginx Configuration
+  template:
+    src: etc/nginx-nr-agent/nginx-nr-agent.ini.j2
+    dest: /etc/nginx-nr-agent/nginx-nr-agent.ini
+    mode: 0644
+    owner: root
+    group: root
+    backup: yes
+  notify: Restart nginx-nr-agent
